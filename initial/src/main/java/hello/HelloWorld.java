@@ -1,6 +1,7 @@
 package hello;
 
 import org.joda.time.LocalTime;
+import java.lang.Runtime;
 
 public class HelloWorld {
   public static void main(String[] args) {
@@ -8,9 +9,8 @@ public class HelloWorld {
     System.out.println("The current local time is: " + currentTime);
 
     Greeter greeter = new Greeter();
-    String Username = new String("Username");
-    String Password = new String("Password");
+    System.out.println(greeter.sayHello() + args[0]);
 
-    System.out.println(greeter.sayHello());
+
   }
 }
