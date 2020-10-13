@@ -8,9 +8,9 @@ public class HelloWorld {
     System.out.println("The current local time is: " + currentTime);
 
     Greeter greeter = new Greeter();
-    String Username = new String("Username")
-    String Password = new String("Password")
-    
+    String Username = new String("Username");
+    String Password = new String("Password");
+
     System.out.println(greeter.sayHello());
   }
 }
