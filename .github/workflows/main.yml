@@ -24,5 +24,6 @@ jobs:
     - name: Unzip the Pipeline Scanner
       run: unzip pipeline-scan-LATEST.zip
     - name: Run Pipeline Scanner
-      run: java -jar pipeline-scan.jar --verbose --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --file "initial/build/libs/zz-veracode-0.1.0.jar" --fail_on_severity="Very High, High, Medium, Low"
+      run: java -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --file "zz-veracode-0.1.0.jar" --fail_on_severity="Very High, High, Medium, Low"
+      working-directory: initial/build/libs
 
