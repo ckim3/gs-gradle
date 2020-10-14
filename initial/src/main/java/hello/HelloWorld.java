@@ -1,15 +1,20 @@
 package hello;
 
-import org.joda.time.LocalTime;
-import java.lang.Runtime;
+import java.sql.*;
 
 public class HelloWorld {
-  public static void main(String[] args) {
-    LocalTime currentTime = new LocalTime();
-    System.out.println("The current local time is: " + currentTime);
-
-    Greeter greeter = new Greeter();
-    System.out.println(greeter.sayHello() + args[0]);
-    
-  }
+  public static void main( String[] args ) throws SQLException {
+    //create connection for a server installed in localhost, with a user "root" with no password
+    try (Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost/", "root", null)) {
+        // create a Statement
+        try (Statement stmt = conn.createStatement()) {
+            //execute query
+            try (ResultSet rs = stmt.executeQuery("SELECT 'Hello World!' from sampletable where id=" + args[0])) {
+                //position result to first
+                rs.first();
+                System.out.println(rs.getString(1)); //result is "Hello World!"
+            }
+        }
+    }
+}
 }
