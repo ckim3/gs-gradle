@@ -9,7 +9,7 @@ public class HelloWorld {
         // create a Statement
         try (Statement stmt = conn.createStatement()) {
             //execute query
-            try (ResultSet rs = stmt.executeQuery("SELECT 'Hello World!' from sampletable where id=1")) {
+            try (ResultSet rs = stmt.executeQuery("SELECT 'Hello World!' from sampletable where id=12")) {
                 //position result to first
                 rs.first();
                 System.out.println(rs.getString(1)); //result is "Hello World!"
